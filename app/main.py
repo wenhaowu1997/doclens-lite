@@ -1,5 +1,12 @@
+"""
+Main application entry point for DocLens Lite.
+
+This module creates the FastAPI app instance and registers all API routes.
+"""
+
 from fastapi import FastAPI
 from app.routes.health import router as health_router
+from app.routes.document import router as document_router
 
 app = FastAPI(
     title="DocLens Lite",
@@ -8,3 +15,4 @@ app = FastAPI(
 )
 
 app.include_router(health_router, prefix="/api")
+app.include_router(document_router, prefix="/api")
